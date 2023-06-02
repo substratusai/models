@@ -9,6 +9,6 @@ model_id = "facebook/opt-350m"
 model = AutoModelForCausalLM.from_pretrained(model_id)
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
-torch.save(model, '/model/model.pt')
-torch.save(tokenizer, '/model/tokenizer.pt')
+torch.save(model, '/built/model.pt')
+torch.save(tokenizer, '/built/tokenizer.pt')
 

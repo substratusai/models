@@ -15,7 +15,7 @@ class Inferer():
         return output
 
 if __name__ == "__main__":
-  model = torch.load('/model/model.pt')
-  tokenizer = torch.load('/model/tokenizer.pt')
+  model = torch.load('/built/model.pt')
+  tokenizer = torch.load('/built/tokenizer.pt')
   device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
   print(Inferer(model, tokenizer, device).infer(sys.argv[1], 20))

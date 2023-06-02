@@ -9,13 +9,15 @@ import sys
 
 data_path = sys.argv[1]
 
-tokenizer = torch.load('/model/tokenizer.pt')
-model = torch.load('/model/model.pt')
+tokenizer = torch.load('/built/tokenizer.pt')
+model = torch.load('/built/model.pt')
 
 ds = PromptData(data_path, tokenizer)
+# TODO: Grab batch sizefrom configuration.
 dl = DataLoader(ds, batch_size=1)
 
-epochs = 3
+# TODO: Grab from configuration.
+epochs = 1
 
 device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 
@@ -37,4 +39,5 @@ train(dl, model, optim)
 
 torch.save(model, '/trained/model.pt')
 
+# TODO: Infer from dataset instead of hardcoding.
 print(Inferer(model, tokenizer, device).infer("What is your favorite color?", 10))

@@ -29,5 +29,9 @@ open localhost:8888
 Finetune.
 
 ```sh
-docker run facebook-opt-125m python train.py ./data/sample/favorite-color-blue.jsonl
+docker run -v $(pwd)/trained:/trained facebook-opt-125m python train.py ./sample-data/favorite-color-blue.jsonl
+docker build -t facebook-opt-125m-trained -f ./trained.Dockerfile --build-arg=SRC_IMG=facebook-opt-125m .
+
+# Run finetuned model (it is no good b/c the small dataset and epochs - I think).
+docker run facebook-opt-125m-trained python infer.py "My favorite color is"
 ```
