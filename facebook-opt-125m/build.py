@@ -1,5 +1,4 @@
-# Import huggingface transformers and load and save the gpt2 model
-# to a file.
+# Import huggingface transformers and load and save the model and tokenizer to disk.
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
