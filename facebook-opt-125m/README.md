@@ -19,14 +19,20 @@ docker run facebook-opt-125m python infer.py "My favorite color is"
 Explore with a Notebook.
 
 ```sh
+# Run Jupyter Notebook server.
 docker run -p 8888:8888 facebook-opt-125m jupyter notebook --allow-root --ip=0.0.0.0 --NotebookApp.token='' --notebook-dir='/app'
+
+# In another terminal: Open browser.
 open http://localhost:8888
 ```
 
 Run Server.
 
 ```sh
+# Run longrunning HTTP API.
 docker run -p 8080:8080 facebook-opt-125m python serve.py
+
+# In another terminal: Open browser.
 open http://localhost:8080/docs
 ```
 
