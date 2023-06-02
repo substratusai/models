@@ -33,7 +33,10 @@ open http://localhost:8080/docs
 Finetune.
 
 ```sh
+# Run training job.
 docker run -v $(pwd)/trained:/trained facebook-opt-125m python train.py ./sample-data/favorite-color-blue.jsonl
+
+# Copy trained model into a new image.
 docker build -t facebook-opt-125m-trained -f ./trained.Dockerfile --build-arg=SRC_IMG=facebook-opt-125m .
 
 # Run finetuned model (it is no good b/c the small dataset and epochs - I think).
