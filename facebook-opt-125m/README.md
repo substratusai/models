@@ -16,7 +16,7 @@ Run inference.
 docker run facebook-opt-125m python infer.py "My favorite color is"
 ```
 
-Explore wiht a Notebook.
+Explore with a Notebook.
 
 ```sh
 docker run -p 8888:8888 facebook-opt-125m jupyter notebook --allow-root --ip=0.0.0.0 --NotebookApp.token='' --notebook-dir='/app'
