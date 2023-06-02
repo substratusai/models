@@ -1,5 +1,9 @@
 # Model: Facebook Opt-125m
 
+A teeny tiny LLM model (https://huggingface.co/facebook/opt-125m).
+
+## Usage
+
 Build.
 
 ```sh
