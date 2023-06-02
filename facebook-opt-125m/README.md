@@ -20,14 +20,14 @@ Explore wiht a Notebook.
 
 ```sh
 docker run -p 8888:8888 facebook-opt-125m jupyter notebook --allow-root --ip=0.0.0.0 --NotebookApp.token='' --notebook-dir='/app'
-open localhost:8888
+open http://localhost:8888
 ```
 
 Run Server.
 
 ```sh
 docker run -p 8080:8080 facebook-opt-125m python serve.py
-open localhost:8888
+open http://localhost:8080/docs
 ```
 
 Finetune.
