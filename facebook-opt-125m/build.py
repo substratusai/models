@@ -1,4 +1,4 @@
-# Import huggingface transformers and load and save the model and tokenizer to disk.
+# Download huggingface transformers and load and save the model and tokenizer to disk for later inference and finetuning.
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
