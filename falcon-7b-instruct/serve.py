@@ -19,6 +19,7 @@ inf = Inferer(model, tokenizer, device)
 app = FastAPI()
 
 
+# This is based on information provided here https://huggingface.co/blog/how-to-generate
 class GenerationRequest(BaseModel):
     prompt: str
     max_new_tokens: int = 200
