@@ -11,7 +11,6 @@ class Inferer():
         self.device = device
 
     def infer(self, generation_request):
-        # prompt_template = f"### Instruction: {prompt}\n### Response:"
         inputs = self.tokenizer(generation_request.prompt, return_tensors="pt").to(self.device)
         # required due to issue with model.generate not supporting this
         inputs.pop("token_type_ids")

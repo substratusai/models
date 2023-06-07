@@ -4,6 +4,7 @@ pydantic
 torch
 xformers
 notebook
+datasets
 
 
 git+https://github.com/huggingface/transformers.git
