@@ -70,8 +70,10 @@ trainer.train()
 
 trainer.save_model("/trained")
 
+device = "cuda" if torch.cuda.is_available(
+) else "mps" if torch.backends.mps.is_available() else "cpu"
+
 text = "Write a YAML file to deploy a docker registry on K8s"
-device = "cuda:0"
 
 inputs = tokenizer(text, return_tensors="pt").to(device)
 inputs.pop("token_type_ids")
