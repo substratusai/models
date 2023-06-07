@@ -16,7 +16,7 @@ In future will make bit quantization optional so it can run on even smaller GPUs
 docker build -t falcon7b-instruct .
 ```
 
-### Running the image and inference
+### Running the image and inference server
 Run inference server with HTTP endpoint:
 ```sh
 docker run --gpus all --runtime nvidia -d -p 8080:8080 falcon-7b-instruct
@@ -33,6 +33,11 @@ curl -X POST http://localhost:8080/generate \
 
 You can also visit the API docs by going to [http://localhost:8080/docs](http://localhost:8080/docs).
 
+### Fine tuning the model
+```
+docker run -v $(pwd)/trained:/trained falcon-7b-instruct python train.py ./sample-data/k8s-
+instructions.jsonl
+```
+
 ## TODO
-- Fine tuning
 - publishing a public image
