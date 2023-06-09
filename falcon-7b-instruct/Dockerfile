@@ -1,4 +1,9 @@
 FROM nvidia/cuda:11.7.1-devel-ubuntu22.04
+ENV MODEL="/built/"
+ENV MODEL_LOCAL_FILES_ONLY="true"
+ENV SERVER_MODEL_NAME="falcon-7b-instruct"
+ENV MODEL_LOAD_IN_8BIT="true"
+ENV MODEL_TRUST_REMOTE_CODE="true"
 
 RUN mkdir /app /built /trained
 WORKDIR /app
@@ -24,5 +29,5 @@ RUN --mount=type=cache,target=/root/.cache pip install --no-cache-dir -r require
 COPY *.py .
 COPY sample-data sample-data
 
-CMD python serve.py
+CMD PORT=8080 python -m basaran
 EXPOSE 8080

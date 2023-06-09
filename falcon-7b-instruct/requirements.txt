@@ -5,6 +5,7 @@ torch
 xformers
 notebook
 datasets
+basaran
 
 
 git+https://github.com/huggingface/transformers.git
