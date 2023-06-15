@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN mkdir /app /built /trained
+RUN mkdir /app /built /trained /ran
 WORKDIR /app
 
 COPY requirements.txt /app
@@ -13,3 +13,4 @@ RUN python build.py
 COPY sample-data/ sample-data/
 
 COPY *.py .
+COPY *.ipynb .

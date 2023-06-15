@@ -4,6 +4,7 @@ pydantic
 torch
 xformers
 notebook
+ipywidgets
 
 bitsandbytes
 git+https://github.com/huggingface/transformers.git
