@@ -30,7 +30,7 @@ Run Server.
 
 ```sh
 # Run longrunning HTTP API.
-docker run -p 8080:8080 facebook-opt-125m python serve.py
+docker run -it -p 8080:8080 facebook-opt-125m ./serve.sh
 
 # In another terminal: Open browser.
 open http://localhost:8080/docs
@@ -40,9 +40,9 @@ Finetune.
 
 ```sh
 # Run training job.
-docker run -e DATA_PATH=/app/sample-data/favorite-color-blue.jsonl -v $(pwd)/ran:/ran -v $(pwd)/trained:/trained facebook-opt-125m jupyter nbconvert --debug --to notebook --execute train.ipynb --output /ran/train.ipynb
+docker run -e DATA_PATH=/app/hack/sample-data.jsonl -v $(pwd)/src:/app/src -v $(pwd)/trained:/trained facebook-opt-125m bash train.sh
 
-# Copy trained model into a new image.
+# Build a new image from the trained model.
 docker build -t facebook-opt-125m-trained -f ./trained.Dockerfile --build-arg=SRC_IMG=facebook-opt-125m .
 
 # Open a notebook to view the finetune job.

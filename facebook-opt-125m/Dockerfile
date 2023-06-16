@@ -1,16 +1,13 @@
 FROM python:3.10
 
-RUN mkdir /app /built /trained /ran
+RUN mkdir /app
 WORKDIR /app
 
 COPY requirements.txt /app
-
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY build.py .
-RUN python build.py
+RUN mkdir /built /trained
 
-COPY sample-data/ sample-data/
+COPY . .
 
-COPY *.py .
-COPY *.ipynb .
+RUN python src/build.py
