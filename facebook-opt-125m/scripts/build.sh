@@ -2,4 +2,4 @@
 
 set -xe
 
-jupyter nbconvert --debug --to notebook --execute ./src/build.ipynb --output ../logs/build.ipynb
+jupyter nbconvert --debug --to notebook --execute /model/src/build.ipynb --output /model/logs/build.ipynb

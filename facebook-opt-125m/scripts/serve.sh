@@ -2,4 +2,4 @@
 
 set -xe
 
-python ./src/serve.py
+python /model/src/serve.py
