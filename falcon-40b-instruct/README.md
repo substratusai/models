@@ -26,8 +26,6 @@ Once the model is loaded try running inference by visiting:
 [http://localhost:8080](http://localhost:8080).
 
 ### Fine tuning the model
-Future roadmap not working yet:
 ```
-docker run -v $(pwd)/trained:/trained falcon-40b-instruct python train.py ./sample-data/k8s-
-instructions.jsonl
+docker run -v $(pwd)/trained:/trained falcon-40b-instruct python train.py ./sample-data/k8s-instructions.jsonl
 ```
