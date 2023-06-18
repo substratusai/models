@@ -1,15 +1,21 @@
 FROM python:3.10
 
-RUN mkdir /app /built /trained
-WORKDIR /app
+# /model/saved - The directory where the model is saved to by this build.
+# /model/trained - The directory where further training of the model should save its model to.
+# /model/logs - The directory where any relevant logs should be saved to.
 
-COPY requirements.txt /app
+RUN mkdir -p /model/saved /model/trained /model/logs
+WORKDIR /model
 
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY build.py .
-RUN python build.py
+ENV PATH="$PATH:/model/scripts"
 
-COPY sample-data/ sample-data/
+# Copy in build dependencies only since the build will take a while.
+COPY ./scripts/ ./scripts
+COPY src/build.ipynb ./src/
+RUN build.sh
 
-COPY *.py .
+COPY ./src/ ./src
+COPY ./hack/ ./hack

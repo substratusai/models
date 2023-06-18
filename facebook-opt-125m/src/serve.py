@@ -6,8 +6,8 @@ from pydantic import BaseModel
 
 from infer import Inferer
 
-model = torch.load("/built/model.pt")
-tokenizer = torch.load("/built/tokenizer.pt")
+model = torch.load("/model/saved/model.pt")
+tokenizer = torch.load("/model/saved/tokenizer.pt")
 device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 inf = Inferer(model, tokenizer, device)
 
