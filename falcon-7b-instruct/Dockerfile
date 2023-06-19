@@ -11,12 +11,10 @@ ENV PATH="$PATH:/model/scripts"
 RUN mkdir -p /model/saved /model/trained /model/logs /model/scripts /model/src
 WORKDIR /model
 
-RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt <<EOF
-set -ex
-apt-get update
-apt-get -y --no-install-recommends install python3 python3-pip git
-rm -rf /var/lib/apt/lists/*
-EOF
+RUN --mount=type=cache,target=/var/cache/apt --mount=type=cache,target=/var/lib/apt \
+    apt-get update && \
+    apt-get -y --no-install-recommends install python3 python3-pip git && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 COPY requirements.txt .
