@@ -1,4 +1,4 @@
-# Substratus.ai Models
+# Substratus.AI Models
 
 A collection of containerized AI models that:
 
