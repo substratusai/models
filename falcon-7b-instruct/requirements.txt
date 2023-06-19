@@ -3,7 +3,9 @@ uvicorn
 pydantic
 torch
 xformers
+jupyterlab
 notebook
+ipywidgets
 datasets
 basaran
 huggingface_hub

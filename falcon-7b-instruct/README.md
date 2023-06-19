@@ -16,6 +16,11 @@ In future will make bit quantization optional so it can run on even smaller GPUs
 docker build -t falcon7b-instruct .
 ```
 
+### Run Jupyter Notebook mounting local src directory
+```
+docker run -it -p 8888:8888 -v $(pwd)/src:/model/src falcon7b-instruct dev.sh
+```
+
 ### Running the image and inference server
 Run inference server with HTTP endpoint:
 ```sh
