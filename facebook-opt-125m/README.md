@@ -1,4 +1,4 @@
-# Model: Facebook Opt-125m
+# Model: Facebook Opt (125 million Params)
 
 A teeny tiny LLM model (https://huggingface.co/facebook/opt-125m).
 
