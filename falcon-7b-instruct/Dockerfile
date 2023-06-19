@@ -20,7 +20,7 @@ EOF
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 COPY requirements.txt .
-RUN --mount=type=cache,target=/root/.cache pip install -r /model/requirements.txt
+RUN pip install --no-cache-dir -r /model/requirements.txt
 COPY src/build.ipynb /model/src/
 COPY scripts/build.sh /model/scripts/
 RUN build.sh
