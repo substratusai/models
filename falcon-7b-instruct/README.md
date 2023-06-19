@@ -28,21 +28,12 @@ docker run --gpus all --runtime nvidia -d -p 8080:8080 falcon-7b-instruct
 ```
 This might take a few minutes to load the model.
 
-Once the model is loaded try running inference by submitting a HTTP post
-request:
-```sh
-curl -X POST http://localhost:8080/generate \
-   -H "Content-Type: application/json" \
-   -d '{"prompt": "Who was the first president of the United States?", "max_new_tokens": 10}'  
-```
+Once the model is loaded try running inference by visiting:
+[http://localhost:8080](http://localhost:8080).
 
-You can also visit the API docs by going to [http://localhost:8080/docs](http://localhost:8080/docs).
 
 ### Fine tuning the model
 ```
 docker run -v $(pwd)/trained:/trained falcon-7b-instruct python train.py ./sample-data/k8s-
 instructions.jsonl
 ```
-
-## TODO
-- publishing a public image
